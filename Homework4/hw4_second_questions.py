@@ -70,6 +70,23 @@ def job_counts(cv: list):
                         temp.append(val)
         count = collections.Counter(temp)
     return count
+
+
+def job_counts(listofcv):
+    # Create the list of jobs from the cvs
+    jobs = list()
+    for i in range(len(listofcv)):
+            jobs.append(listofcv[i]['jobs']) 
+    jobs_fl = [item for sublist in jobs for item in sublist] #Create a flat list, no sublist
+    jobs_nr = list(dict.fromkeys(jobs_fl)) # create a list with no repetitions
+    
+    # Create a list with the counts of each job
+    counts = list()
+    for j in jobs_nr:
+        counts.append(jobs_fl.count(j))
+        
+    dict_counts = dict(zip(jobs_nr, counts))
+    return dict_counts
             
 job_counts(test2)
             
