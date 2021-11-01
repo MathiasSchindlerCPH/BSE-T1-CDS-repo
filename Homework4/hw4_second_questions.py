@@ -119,3 +119,12 @@ xx = most_popular_job(test2)
 type(xx)    #tuple
 type(xx[0]) #str
 type(xx[1]) #int
+
+
+def most_popular_job(listofcv):
+    a = job_counts(listofcv)
+    max_val = max(a.values())
+    for i in a.keys():
+        if a[i] == max_val:
+            return (i, a[i])
+    
