@@ -78,5 +78,11 @@ def country_with_most_cases(data : dict):
         x_max = max(x, key = x.get)
     return x_max
 
+def country_with_most_cases(dict_dt):
+    a = total_registered_cases_per_country(dict_dt)
+    max_val = max(a.values())
+    for i in a.keys():
+        if a[i] == max_val:
+            return i
 
 country_with_most_cases(test3)
