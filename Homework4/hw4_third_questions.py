@@ -26,6 +26,10 @@ def total_registered_cases(data : dict, country : str):
         for key, val in data.items():
             if key == country:
                 print(sum(val))
+                
+def total_registered_cases(dict_dt, country):
+    total_cases = sum(dict_dt[country])
+    return total_cases
             
 total_registered_cases(test3, "Italy")            
 
