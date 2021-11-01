@@ -51,6 +51,13 @@ def total_registered_cases_per_country(data : dict):
             out[key] = sum(val)
     return out
         
+
+def total_registered_cases_per_country(dict_dt):
+    list_dict = list()
+    for i in dict_dt.keys():
+        list_dict.append((i, sum(dict_dt[i])))
+    dict_sums = dict(list_dict)
+    return dict_sums
         
 total_registered_cases_per_country(test3)
         
