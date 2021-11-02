@@ -27,4 +27,7 @@ def avg_death_confir(how_many):
     print(countries, tot_mean)
         
 avg_death_confir(500)
-        
+avg_death_confir(1000)
+avg_death_confir(5000)
+
+                 
