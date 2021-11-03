@@ -39,17 +39,7 @@ def has_experience_as(cv: list, job_title: str):
                            user_has_worked.append(x)
     return user_has_worked
     
-def has_experience_as(cv, job_title):
-    name_with_job = list()
-    for i in range(len(cv)):
-        if job_title in cv[i]['jobs']:
-            name_with_job.append(cv[i]['user'])
-    
-    if len(name_with_job) == 0:
-        print('There is no any user with experience in', job_title)
-    else:
-        return name_with_job   
-#
+
 # 5)
 # Create a function called "job_counts"
 # that has one parameter: list of CV's
@@ -106,10 +96,3 @@ type(xx[0]) #str
 type(xx[1]) #int
 
 
-def most_popular_job(listofcv):
-    a = job_counts(listofcv)
-    max_val = max(a.values())
-    for i in a.keys():
-        if a[i] == max_val:
-            return (i, a[i])
-    
