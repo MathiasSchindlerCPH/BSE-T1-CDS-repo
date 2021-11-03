@@ -27,10 +27,7 @@ def total_registered_cases(data : dict, country : str):
             if key == country:
                 print(sum(val))
                 
-def total_registered_cases(dict_dt, country):
-    total_cases = sum(dict_dt[country])
-    return total_cases
-            
+
 total_registered_cases(test3, "Italy")            
 
 
@@ -52,20 +49,7 @@ def total_registered_cases_per_country(data : dict):
     return out
         
 
-def total_registered_cases_per_country(dict_dt):
-    list_dict = list()
-    for i in dict_dt.keys():
-        list_dict.append((i, sum(dict_dt[i])))
-    dict_sums = dict(list_dict)
-    return dict_sums
 
-def total_registered_cases_per_country(dict): 
-    t = {}
-    for k, v in dict.items():
-        t[k] = sum(v)
-                
-    return t
-                
         
 total_registered_cases_per_country(test3)
         
@@ -86,11 +70,5 @@ def country_with_most_cases(data : dict):
         x_max = max(x, key = x.get)
     return x_max
 
-def country_with_most_cases(dict_dt):
-    a = total_registered_cases_per_country(dict_dt)
-    max_val = max(a.values())
-    for i in a.keys():
-        if a[i] == max_val:
-            return i
 
 country_with_most_cases(test3)
