@@ -44,9 +44,6 @@ def dictionary_maker(a):
     return dict
 
 
-# An alternative
-def dictionary_maker(list_of_tuples):
-    return dict(list_of_tuples)
 
 
 test1 = [("foo", 1), ("bar", 3), ("cop", 15), ("hello", 26), ("world", 45)]
