@@ -67,6 +67,15 @@ def safe_subtract(value1: int,value2: int):
 # making sure to use to handle the fact 
 # that it might not exist. 
 #
+def read_data(data):
+    try:
+        f = open(data)
+    except IOError as e:
+        print("File can't be accessed")
+    else:
+        with f:
+            print(f.read())
+            
 
 
 # 5) Squash some bugs! 
