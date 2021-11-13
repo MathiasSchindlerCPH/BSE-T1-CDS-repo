@@ -165,6 +165,15 @@ df_dates
 # HINT: You can use geopy.distance in order to compute the distance
 #
 
+from geopy import distance
+
+list_points = [((41.23,23.5), (41.5, 23.4)), ((52.38, 20.1),(52.3, 17.8))]
+
+def compute_distance(point):
+    return distance.distance(point[0], point[1]).km
+
+list(map(compute_distance, list_points))
+
 #################################################
 # 9)
 # Consider a list that each element can be an integer or
