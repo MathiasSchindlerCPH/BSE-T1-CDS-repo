@@ -129,6 +129,16 @@ for elem in [1, 5, 25]:
 #  "Hakuna matata", "Timon, Pumba and Simba are friends, but Simba could eat the other two."] 
 #
 
+from functools import reduce
+
+ex = ["Simba and Nala are lions.", "I laugh in the face of danger.",
+ "Hakuna matata", "Timon, Pumba and Simba are friends, but Simba could eat the other two."] 
+
+def count_simba(string):
+    return string.count('Simba') 
+    
+reduce(lambda x,y: x+y, map(count_simba, ex))
+
 # 7)
 # Create a function called "get_day_month_year" that takes 
 # a list of datetimes.date and returns a pandas dataframe
