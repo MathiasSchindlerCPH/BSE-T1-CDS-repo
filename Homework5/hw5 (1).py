@@ -50,6 +50,27 @@ def safe_subtract(value1: int,value2: int):
 # Name the first function "retrieve_age_eafp" and follow EAFP
 # Name the second function "retrieve_age_lbyl" and follow lbyl
 
+a = {'name': 'John', 'last_name': 'Doe', 'birth': 1990}
+b = {'name': 'Janet', 'last_name': 'Bird', 'gender': 'female'}
+
+
+def retrieve_age_eafp(input_dict):
+    try:
+        age_v = 2021 - input_dict['birth']
+        input_dict.update({'age': age_v})
+        print("{name} {last_name} is {age} years old".format(**input_dict))
+    except KeyError:
+        print('The dictionary does not have enough information to print the age')
+    
+    
+def retrieve_age_lbyl(input_dict):
+    if 'name' in input_dict and 'last_name' in input_dict and 'birth' in input_dict:
+        age_v = 2021 - input_dict['birth']
+        input_dict.update({'age': age_v})
+        print("{name} {last_name} is {age} years old".format(**input_dict))
+    else:
+        print('The dictionary does not have enough information to print the age')
+        
 
 # 4)
 # Imagine you have a file named data.csv. 
