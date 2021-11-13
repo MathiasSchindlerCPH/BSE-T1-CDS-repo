@@ -94,25 +94,29 @@ def read_data(data):
 # in the code blocks below. Comment in each of them
 # which logical errors did you find and correct them
 ### (a)
-#total_double_sum = 0
-#for elem in [10, 5, 2]:
- #   double = elem * 2
-  #  total_double_sum += elem
+
+total_double_sum = 0
+for elem in [10, 5, 2]:
+    double = elem * 2
+    total_double_sum += double # It was adding elem instead of double. Fixed!
+    
 
 ### (b)
-#strings = ''
-#for string in ['I', 'am', 'Groot']:
- #   strings = string+"_"+string
+strings = ''
+for string in ['I', 'am', 'Groot']:
+    strings += string + " " # It was replacing the last value and concatenating twice the same element
+
 
 ### (c) Careful!
-#j=10
-#while j > 0:
-#   j += 1
+j=10
+while j > 0:
+   j -= 1 # It was counting to infinite, fixed to do count down from 10
+   print(j)
 
 ### (d)
-#productory = 0
-#for elem in [1, 5, 25]:
-#    productory *= elem
+productory = 1 # The initial value should be 1, with 0 always returns 0, a * 0 = 0
+for elem in [1, 5, 25]:
+    productory *= elem
 
 
 ################################################
