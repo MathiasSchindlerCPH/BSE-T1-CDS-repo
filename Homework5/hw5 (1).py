@@ -11,26 +11,16 @@
 # "Undefined instruction for color: <light>" 
 # where <light> is the value of the parameter light.
 #
-class lightcolor(Exception):
-
-    def __init__(self, light):
-        if light != 'red' and light != 'yellow' and light != 'green':
-            message = "Undefined instruction for color:", {light}
-        else:
-            pass
-
-        super().__init__(message)
-
-
-def car_at_light (light):
+def car_at_light(light):
+    light = light.lower()
     if light == 'red':
-        print('stop')
+        return 'stop'
     elif light == 'green':
-        print('go')
+        return 'go'
     elif light == 'yellow':
-        print('wait')
-    else: 
-        raise lightcolor(light)
+        return 'wait'
+    else:
+        raise Exception (f'Undefined instruction for color: {light}')
 
     
 
