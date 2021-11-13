@@ -146,6 +146,16 @@ reduce(lambda x,y: x+y, map(count_simba, ex))
 # is an element of the input list and has as value its 
 # day, month, and year.
 # 
+from datetime import date
+import pandas as pd
+
+list_of_dates = [date(1996, 12, 11), date(1992, 2, 1), date(2021, 11, 11)]
+
+def get_day_month_year(dates):
+    return {'day':dates.day, 'month':dates.month, 'year':dates.year}
+
+df_dates = pd.DataFrame(map(get_day_month_year, list_of_dates))
+df_dates
 
 # 8) 
 # Create a function called "compute_distance" that takes
