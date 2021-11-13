@@ -185,3 +185,14 @@ list(map(compute_distance, list_points))
 # for instance for list_1=[[2], 3, [[1,2],5]] 
 # the result should be 13 
 #
+
+list_numbers = [[2], 4, 5, [1, [2], [3, 5, [7,8]], 10], 1]
+
+def sum_general_int_list(list_n):
+    if type(list_n) != list:
+        return list_n
+    if list_n == []:
+        return 0
+    return sum_general_int_list(list_n[0]) + sum_general_int_list(list_n[1:])
+
+print(sum_general_int_list(list_numbers))
