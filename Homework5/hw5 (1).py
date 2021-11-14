@@ -11,26 +11,16 @@
 # "Undefined instruction for color: <light>" 
 # where <light> is the value of the parameter light.
 #
-class lightcolor(Exception):
-
-    def __init__(self, light):
-        if light != 'red' and light != 'yellow' and light != 'green':
-            message = "Undefined instruction for color:", {light}
-        else:
-            pass
-
-        super().__init__(message)
-
-
-def car_at_light (light):
+def car_at_light(light):
+    light = light.lower()
     if light == 'red':
-        print('stop')
+        return 'stop'
     elif light == 'green':
-        print('go')
+        return 'go'
     elif light == 'yellow':
-        print('wait')
-    else: 
-        raise lightcolor(light)
+        return 'wait'
+    else:
+        raise Exception (f'Undefined instruction for color: {light}')
 
     
 
@@ -60,6 +50,27 @@ def safe_subtract(value1: int,value2: int):
 # Name the first function "retrieve_age_eafp" and follow EAFP
 # Name the second function "retrieve_age_lbyl" and follow lbyl
 
+a = {'name': 'John', 'last_name': 'Doe', 'birth': 1990}
+b = {'name': 'Janet', 'last_name': 'Bird', 'gender': 'female'}
+
+
+def retrieve_age_eafp(input_dict):
+    try:
+        age_v = 2021 - input_dict['birth']
+        input_dict.update({'age': age_v})
+        print("{name} {last_name} is {age} years old".format(**input_dict))
+    except KeyError:
+        print('The dictionary does not have enough information to print the age')
+    
+    
+def retrieve_age_lbyl(input_dict):
+    if 'name' in input_dict and 'last_name' in input_dict and 'birth' in input_dict:
+        age_v = 2021 - input_dict['birth']
+        input_dict.update({'age': age_v})
+        print("{name} {last_name} is {age} years old".format(**input_dict))
+    else:
+        print('The dictionary does not have enough information to print the age')
+        
 
 # 4)
 # Imagine you have a file named data.csv. 
@@ -83,25 +94,29 @@ def read_data(data):
 # in the code blocks below. Comment in each of them
 # which logical errors did you find and correct them
 ### (a)
-#total_double_sum = 0
-#for elem in [10, 5, 2]:
- #   double = elem * 2
-  #  total_double_sum += elem
+
+total_double_sum = 0
+for elem in [10, 5, 2]:
+    double = elem * 2
+    total_double_sum += double # It was adding elem instead of double. Fixed!
+    
 
 ### (b)
-#strings = ''
-#for string in ['I', 'am', 'Groot']:
- #   strings = string+"_"+string
+strings = ''
+for string in ['I', 'am', 'Groot']:
+    strings += string + " " # It was replacing the last value and concatenating twice the same element
+
 
 ### (c) Careful!
-#j=10
-#while j > 0:
-#   j += 1
+j=10
+while j > 0:
+   j -= 1 # It was counting to infinite, fixed to do count down from 10
+   print(j)
 
 ### (d)
-#productory = 0
-#for elem in [1, 5, 25]:
-#    productory *= elem
+productory = 1 # The initial value should be 1, with 0 always returns 0, a * 0 = 0
+for elem in [1, 5, 25]:
+    productory *= elem
 
 
 ################################################
@@ -114,6 +129,16 @@ def read_data(data):
 #  "Hakuna matata", "Timon, Pumba and Simba are friends, but Simba could eat the other two."] 
 #
 
+from functools import reduce
+
+ex = ["Simba and Nala are lions.", "I laugh in the face of danger.",
+ "Hakuna matata", "Timon, Pumba and Simba are friends, but Simba could eat the other two."] 
+
+def count_simba(string):
+    return string.count('Simba') 
+    
+reduce(lambda x,y: x+y, map(count_simba, ex))
+
 # 7)
 # Create a function called "get_day_month_year" that takes 
 # a list of datetimes.date and returns a pandas dataframe
@@ -121,6 +146,16 @@ def read_data(data):
 # is an element of the input list and has as value its 
 # day, month, and year.
 # 
+from datetime import date
+import pandas as pd
+
+list_of_dates = [date(1996, 12, 11), date(1992, 2, 1), date(2021, 11, 11)]
+
+def get_day_month_year(dates):
+    return {'day':dates.day, 'month':dates.month, 'year':dates.year}
+
+df_dates = pd.DataFrame(map(get_day_month_year, list_of_dates))
+df_dates
 
 # 8) 
 # Create a function called "compute_distance" that takes
@@ -129,6 +164,15 @@ def read_data(data):
 # example input: [((41.23,23.5), (41.5, 23.4)), ((52.38, 20.1),(52.3, 17.8))]
 # HINT: You can use geopy.distance in order to compute the distance
 #
+
+from geopy import distance
+
+list_points = [((41.23,23.5), (41.5, 23.4)), ((52.38, 20.1),(52.3, 17.8))]
+
+def compute_distance(point):
+    return distance.distance(point[0], point[1]).km
+
+list(map(compute_distance, list_points))
 
 #################################################
 # 9)
@@ -141,3 +185,14 @@ def read_data(data):
 # for instance for list_1=[[2], 3, [[1,2],5]] 
 # the result should be 13 
 #
+
+list_numbers = [[2], 4, 5, [1, [2], [3, 5, [7,8]], 10], 1]
+
+def sum_general_int_list(list_n):
+    if type(list_n) != list:
+        return list_n
+    if list_n == []:
+        return 0
+    return sum_general_int_list(list_n[0]) + sum_general_int_list(list_n[1:])
+
+print(sum_general_int_list(list_numbers))
