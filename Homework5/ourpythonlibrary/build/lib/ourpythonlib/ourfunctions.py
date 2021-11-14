@@ -39,14 +39,20 @@ def one_hot(df, prfx, col):
     return df
 
 
-# g & h) Train model
-def fit_predict(df, target, features: list):
+# g) Train model
+def fit_model(df, target, features: list):
     x = df[features]
     y = df[target]
-    y_hat = LogisticRegression().fit(x, y).predict_proba(x)
+    fittedmodel = LogisticRegression().fit(x, y)
+    return fittedmodel
+
+#h) predict
+def predict_y(df, features: list, model):
+    x = df[features]
+    y_hat = model.predict_proba(x)
     y_hat = y_hat[:,1]
     df['predictions'] = y_hat
-    return df    
+    return df   
 
 
 # i) Metric scores
