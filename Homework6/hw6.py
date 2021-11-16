@@ -87,6 +87,16 @@ print(pat1.test_result)
 # 2.1) Create a Card class called "Card".
 # The constructor (__init__ ) should have two parameters the "suit" and the "value" and the suit of the card.
 # The class should store both as attributes.
+class Card:
+    def __init__(self, suit: str, value: float):
+        self.suit = suit
+        self.value = value
+        
+#test:
+heart7 = Card('hearts', 9)
+print(heart7.suit)
+print(heart7.value)
+
 
 
 # 2.2) Create a Deck class called "Deck".
