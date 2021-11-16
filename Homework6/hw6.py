@@ -75,6 +75,27 @@ print(pat1.test_result)
 #    following symptoms:
 #    ['fever', 'cough', 'anosmia']
 
+class Patient:
+    def __init__(self, name: str, symptoms: list):
+        self.name = name
+        self.symptoms = symptoms
+        
+    def add_test(self, test_name: str, test_result: bool):
+        self.test_name = test_name
+        self.test_result = test_result
+
+    def has_covid(self):
+        self._proba = 0.05
+        try:
+            if (self.test_name == 'Covid') & (self.test_result == True):
+                self._proba = 0.99
+                return self._proba
+            elif (self.test_name == 'Covid') & (self.test_result == False):
+                self._proba = 0.01
+                return self._proba
+        except AttributeError:
+            self._proba += 0.1*len(self.symptoms)
+            return self._proba
 
 ######################
 
