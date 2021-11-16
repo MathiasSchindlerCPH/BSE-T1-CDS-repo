@@ -128,6 +128,16 @@ print(p1.has_covid())
 # 2.1) Create a Card class called "Card".
 # The constructor (__init__ ) should have two parameters the "suit" and the "value" and the suit of the card.
 # The class should store both as attributes.
+class Card:
+    def __init__(self, suit: str, value: float):
+        self.suit = suit
+        self.value = value
+        
+#test:
+heart7 = Card('hearts', 9)
+print(heart7.suit)
+print(heart7.value)
+
 
 
 # 2.2) Create a Deck class called "Deck".
@@ -135,6 +145,43 @@ print(p1.has_covid())
 # Create a method called "shuffle" that shuffles the cards randomly. 
 # Create a method called "draw" that will draw a single card and print the suit and value. When a card is drawn, the card should be removed from the deck.
 
+import random 
+
+class Deck: 
+    def __init__(self):
+        suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
+        values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+        eng_deck = []
+        
+        for i in range(len(suits)):
+            for j in range(len(values)):
+                card = [suits[i], values[j]]
+                card = tuple(card)
+                eng_deck.append(card)
+                
+        self.current_deck = eng_deck
+        
+    def shuffle(self):
+        random.shuffle(self.current_deck)
+        return self.current_deck
+    
+    def draw(self):
+        card_drawn = random.choice(self.current_deck)
+        
+        element_to_be_removed = [card_drawn]
+        for element in element_to_be_removed:
+            self.current_deck.remove(element)
+        return card_drawn
+        
+        
+#Testing
+test = Deck() #<- Instantiates
+test.current_deck #<- show full English deck
+len(test.current_deck ) #<- 52
+
+test.shuffle() #<- shuffles deck
+test.draw() #<- draws random card and removes it from current deck
+len(test.current_deck ) #<- 51
 
 
 ###################
