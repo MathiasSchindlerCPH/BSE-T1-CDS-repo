@@ -39,6 +39,21 @@ pat1.symptoms
 # 2. the results of the test (bool)
 #
 # This information should be stored somehow.
+class Patient:
+    def __init__(self, name: str, symptoms: list):
+        self.name = name
+        self.symptoms = symptoms
+        
+    def add_test(self, test_name: str, test_result: bool):
+        self.test_name = test_name
+        self.test_result = test_result
+
+
+#testing:
+pat1.add_test('covid', False)
+print(pat1.test_name)
+print(pat1.test_result)
+
 
 
 #
