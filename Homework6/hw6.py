@@ -129,32 +129,13 @@ print(p1.has_covid())
 # The constructor (__init__ ) should have two parameters the "suit" and the "value" and the suit of the card.
 # The class should store both as attributes.
 
-class Card():
-    def __init__(self, suit: str, value: int):
-        self.suit = suit
-        self.value = value
 
 # 2.2) Create a Deck class called "Deck".
 # The constructor will create an English Deck (suits: Hearts, Diamonds, Clubs, Spades and values: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K). It will create a list of cards that contain each of the existing cards in an English Deck.
 # Create a method called "shuffle" that shuffles the cards randomly. 
 # Create a method called "draw" that will draw a single card and print the suit and value. When a card is drawn, the card should be removed from the deck.
 
-import random
 
-class Deck():
-    def __init__(self):
-        self.suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
-        self.values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
-        self.cards = [(s,v) for v in self.suits for s in self.values]
-    
-    def shuffle(self):
-        random.shuffle(self.cards)
-        print('Cards shuffled')
-
-    def drawn(self):
-        choice = self.cards[-1]
-        print(self.cards)
-        self.cards.remove(choice)
 
 ###################
 
