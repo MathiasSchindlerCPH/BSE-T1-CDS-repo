@@ -54,8 +54,6 @@ pat1.add_test('covid', False)
 print(pat1.test_name)
 print(pat1.test_result)
 
-
-
 #
 # 1.3)
 # Create a method called has_covid()
@@ -94,8 +92,30 @@ class Patient:
                 self._proba = 0.01
                 return self._proba
         except AttributeError:
-            self._proba += 0.1*len(self.symptoms)
-            return self._proba
+            if any(x in self.symptoms for x in ['fever', 'cough', 'anosmia']):
+                self._proba += 0.1*len(self.symptoms)
+                return self._proba
+            else:
+                return self._proba
+# Testing
+
+p1 = Patient("Andres", ["Fever"])
+print(p1.name)
+print(p1.symptoms)
+
+print('')
+p1.has_covid()
+print(p1.has_covid())
+
+print('')
+p1.add_test('Covid', True)
+print(p1.test_name)
+print(p1.test_result)
+print(p1.has_covid())
+
+print('')
+p1.add_test('Covid', False)
+print(p1.has_covid())
 
 ######################
 
