@@ -97,8 +97,8 @@ class Patient:
                 return self._proba
             else:
                 return self._proba
+                
 # Testing
-
 p1 = Patient("Andres", ["Fever"])
 print(p1.name)
 print(p1.symptoms)
