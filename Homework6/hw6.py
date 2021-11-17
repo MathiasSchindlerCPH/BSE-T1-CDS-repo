@@ -226,6 +226,24 @@ test.compute_surface()
 
 
 # 3.3 Create a child class called "Rectangle" that inherits from "PlaneFigure" and has as parameters in the constructor "a", "b" (sides of the rectangle). Implement the abstract methods with the formula of the rectangle.
+class Rectangle(PlaneFigure):
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+        
+    def compute_perimeter(self):
+        return 2*self.a + 2*self.b
+        
+    def compute_surface(self):
+        return self.a*self.b
+
+
+#testing:
+test = Rectangle(2,5)
+test.compute_perimeter()
+test.compute_surface()
+
+
 
 # 3.3 Create a child class called "Circle" that inherits from "PlaneFigure" and has as parameters in the constructor "radius" (radius of the circle). Implement the abstract methods with the formula of the circle.
 
