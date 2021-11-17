@@ -199,9 +199,11 @@ class PlaneFigure(ABC):
     @abstractmethod
     def compute_perimeter(self):
         pass
-        
+    
+    @abstractmethod    
     def compute_surface(self):
         pass
+    
 
 # 3.2 Create a child class called "Triangle" that inherits from "PlaneFigure" and has as parameters in the constructor "base", "c1", "c2", "h". ("base" being the base, "c1" and "c2" the other two sides of the triangle and "h" the height). Implement the abstract methods with the formula of the triangle.
 class Triangle(PlaneFigure):
