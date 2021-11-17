@@ -189,9 +189,19 @@ len(test.current_deck ) #<- 51
 # 3. In this exercise you will create an interface that will serve as template 
 # for different figures to compute their perimeter and surface. 
 
-# 3.1Create an abstract class (interface) called "PlaneFigure" with two abstract methods:
+from abc import ABC, abstractmethod
+import math 
+
+# 3.1 Create an abstract class (interface) called "PlaneFigure" with two abstract methods:
 # compute_perimeter() that will implement the formula to compute the perimiter of the plane figure.
 # compute_surface() that will implement the formula to compute the surface of the plane figure.
+class PlaneFigure(ABC):
+    @abstractmethod
+    def compute_perimeter(self):
+        pass
+        
+    def compute_surface(self):
+        pass
 
 # 3.2 Create a child class called "Triangle" that inherits from "PlaneFigure" and has as parameters in the constructor "base", "c1", "c2", "h". ("base" being the base, "c1" and "c2" the other two sides of the triangle and "h" the height). Implement the abstract methods with the formula of the triangle.
 
