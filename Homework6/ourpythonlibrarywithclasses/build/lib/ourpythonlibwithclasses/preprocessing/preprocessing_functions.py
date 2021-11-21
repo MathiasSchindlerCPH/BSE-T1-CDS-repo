@@ -21,26 +21,35 @@ class PreProcessor:
 
 
 class Transform(ABC):
+   
     @abstractmethod
-    def feat_standardize(self):
-        pass
-    
-    @abstractmethod
-    def feat_poly(self):
-        pass
-    
-    
-class Standardize(Transform):
-    def __init__(self, df: pd.DataFrame):
-        self.df = df
+    def transform(self):
+        return NotImplementedError
 
-    def feat_standardize(self):
-        scl = StandardScaler()
-        self.scaled = scl.fit_transform(self.df)
-        self.scaled = pd.DataFrame(self.scaled, columns = self.df.columns, index = self.df.index)
+class ReScaling(Transform):
+    def __init__(self, kind: str):
+        self.kind = kind
     
-    def feat_poly(self):
-        poly = PolynomialFeatures(2)
-        self.polynized = poly.fit_transform(self.df)
-        poly_cols = poly.get_feature_names_out(self.df.columns)
-        self.polynized = pd.DataFrame(self.polynized, columns = poly_cols, index = self.df.index)
+    def transform(self, df):
+        self.df = df
+        if self.kind == 'min_max':
+            for feature in (self.df.columns):
+                self.df[feature] = (self.df[feature] - self.df[feature].min()) / (self.df[feature].max() - self.df[feature].min())
+            return self.df
+        elif self.kind == 'standarization':
+            for feature in (self.df.columns):
+                self.df[feature] = (self.df[feature] - self.df[feature].mean()) / self.df[feature].std()
+            return self.df
+
+
+class PolyFeatures(Transform):
+    def __init__(self, n_poly_f: int):
+        self.n_poly_f = n_poly_f
+        
+    def transform(self, df, columns:list):
+        self.df = df
+        self.columns = columns
+        for feature in self.columns:
+            for i_poly in range(2,self.n_poly_f+1):
+                self.df[feature+'_poly'+str(i_poly)] = self.df[feature] ** i_poly
+        return self.df

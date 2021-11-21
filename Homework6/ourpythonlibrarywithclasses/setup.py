@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-	name='ourpythonlib',
+	name='ourpythonlibwithclasses',
 	packages=find_packages(exclude=['tests']),
 	install_requires=[
 		'pandas==1.3.3',

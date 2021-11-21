@@ -1,12 +1,12 @@
 README.md
 setup.py
-ourpythonlib.egg-info/PKG-INFO
-ourpythonlib.egg-info/SOURCES.txt
-ourpythonlib.egg-info/dependency_links.txt
-ourpythonlib.egg-info/requires.txt
-ourpythonlib.egg-info/top_level.txt
 ourpythonlibwithclasses/__init__.py
 ourpythonlibwithclasses/ourfunctionsclasses.py
+ourpythonlibwithclasses.egg-info/PKG-INFO
+ourpythonlibwithclasses.egg-info/SOURCES.txt
+ourpythonlibwithclasses.egg-info/dependency_links.txt
+ourpythonlibwithclasses.egg-info/requires.txt
+ourpythonlibwithclasses.egg-info/top_level.txt
 ourpythonlibwithclasses/loading/__init__.py
 ourpythonlibwithclasses/loading/loading_functions.py
 ourpythonlibwithclasses/modelling/__init__.py
