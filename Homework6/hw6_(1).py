@@ -17,10 +17,7 @@
 #
 # the parameters should be stored as attributes
 # called "name" and "symptoms" respectively
-class Patient:
-    def __init__(self, name: str, symptoms: list):
-        self.name = name
-        self.symptoms = symptoms
+
 
 #testing:
 name = 'Ken'
