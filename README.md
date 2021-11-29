@@ -1,5 +1,5 @@
 # BSE-Computing-for-DS
-Coursework for *Computing for Data Science* at the Barcelona School of Economics, Class of '22. Seven homework projects that make up 60% of the final grade (the rest from the extended projects in repo 'BSE-CML1-repo'). 
+Coursework for *Computing for Data Science* at the Barcelona School of Economics, Class of '22. Seven homework projects that make up 60% of the final grade (the rest from the extended projects in repo `BSE-CML1-repo`). 
 
 * Hw1 and Hw2: Terminal
 * Hw3 and Hw4: SQL
