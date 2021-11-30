@@ -47,7 +47,9 @@ class TestSumGeneralIntList(unittest.TestCase):
         
     def test_input_value(self): 
         self.assertRaises(TypeError, sum_general_int_list, True)
-        
+  
+if __name__ == '__main__':
+    unittest.main()
         
        
         
