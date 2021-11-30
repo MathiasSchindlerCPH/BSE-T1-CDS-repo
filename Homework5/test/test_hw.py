@@ -26,18 +26,14 @@ class TestHW5(unittest.TestCase):
         data = [((41.23,23.5), (41.5, 23.4)), ((52.38, 20.1), (52.3, 17.8))]
         output = list(map(compute_distance, data))
         expected_output = [31.13186522205169, 157.00582786889402]
-        #self.unittest.TestCase.assertListEqual(output, expected_output)
         self.assertListEqual(output, expected_output)
-        #assert output == expected_output
     
     # 9
     def testSumGeneralIntList(self):
         data = [[2], 4, 5, [1, [2], [3, 5, [7,8]], 10], 1]
         output = sum_general_int_list(data)
         expected_output = 48
-        #self.unittest.TestCase.assertEqual(output, expected_output)
         self.assertEqual(output, expected_output)
-        #assert output == expected_output
 
 
 
