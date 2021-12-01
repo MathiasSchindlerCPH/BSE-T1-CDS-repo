@@ -29,7 +29,6 @@ class TestHW5(unittest.TestCase):
         expected_output = 2
         self.assertEqual(output, expected_output)
         with self.assertRaises(TypeError):
-            #safe_subtract("Hello", "world")
             safe_subtract("None")
         
         
@@ -39,7 +38,6 @@ class TestHW5(unittest.TestCase):
         expected_output = -20
         self.assertEqual(output, expected_output)
         with self.assertRaises(TypeError):
-            #safe_subtract("Hello", "world")
             safe_subtract("None")
     
     # 3
@@ -58,7 +56,6 @@ class TestHW5(unittest.TestCase):
         expected_output = 'Will Smith is 53 years old'
         self.assertEqual(output, expected_output)
         with self.assertRaises(KeyError):
-            #retrieve_age_lbyl({'name': 'Someone', 'last_name': 'something', 'gender': 'both'})
             retrieve_age_lbyl({'name': 'Someone', 'last_name': 'something', 'gender': 'both'})
         
     #4    
@@ -68,7 +65,7 @@ class TestHW5(unittest.TestCase):
         expected_output = pd.read_csv("https://raw.githubusercontent.com/MathiasSchindlerCPH/datasets/master/sample_diabetes_mellitus_data.csv")
         assert_frame_equal(output, expected_output)
         with self.assertRaises(FileNotFoundError): 
-            read_data('sandra.csv')
+            read_data("data.csv")
     
     #6
     def test_count_simba(self):
@@ -79,7 +76,6 @@ class TestHW5(unittest.TestCase):
         expected_output = 3
         self.assertEqual(output, expected_output)    
    
-    
 
     # 7
     def test_GetDayMonthYear(self):
