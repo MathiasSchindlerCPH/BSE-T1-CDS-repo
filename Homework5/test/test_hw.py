@@ -67,8 +67,8 @@ class TestHW5(unittest.TestCase):
         output = read_data("https://raw.githubusercontent.com/MathiasSchindlerCPH/datasets/master/sample_diabetes_mellitus_data.csv")
         expected_output = pd.read_csv("https://raw.githubusercontent.com/MathiasSchindlerCPH/datasets/master/sample_diabetes_mellitus_data.csv")
         assert_frame_equal(output, expected_output)
-        with self.assertRaises(IOError): 
-            read_data("https://raw.githubusercontent.com/MathiasSchindlerCPH/datasets/master/sample_diabetes_mellitus_data.csv")
+        with self.assertRaises(FileNotFoundError): 
+            read_data('sandra.csv')
     
     #6
     def test_count_simba(self):
