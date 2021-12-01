@@ -64,13 +64,23 @@ class TestHW5(unittest.TestCase):
         expected_output = 'Will Smith is 53 years old'
         self.assertEqual(output, expected_output)
         
-    #4
-    
-    
-    #5
-    
+    #4    
+    def test_read_data(self): 
+        output = read_data('sample_diabetes_melitus_data.csv')
+        expected_output = pd.read_csv('sample_diabetes_melitus_data.csv')
+        assert_frame_equal(output, expected_output)
+        with self.assertRaises(FileNotFoundError): 
+            read_data(sandra.csv)
     
     #6
+    def test_count_simba(self):
+        ex = ["Simba and Nala are lions.",
+              "Hakuna matata", 
+              "Timon, Pumba and Simba are friends, but Simba could eat the other two."]
+        output = count_simba(ex)
+        expected_output = 3
+        self.assertEqual(output, expected_output)    
+   
     
 
     # 7
