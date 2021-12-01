@@ -60,9 +60,9 @@ def retrieve_age_eafp(input_dict):
         input_dict.update({'age': age_v})
         print("{name} {last_name} is {age} years old".format(**input_dict))
         return "{name} {last_name} is {age} years old".format(**input_dict)
-    except KeyError:
-        print('The dictionary does not have enough information to print the age')
-    
+    except KeyError as e:
+        print(e, 'The dictionary does not have enough information to print the age')
+        raise
     
 def retrieve_age_lbyl(input_dict):
     if 'name' in input_dict and 'last_name' in input_dict and 'birth' in input_dict:
@@ -71,7 +71,7 @@ def retrieve_age_lbyl(input_dict):
         print("{name} {last_name} is {age} years old".format(**input_dict))
         return "{name} {last_name} is {age} years old".format(**input_dict)
     else:
-        print('The dictionary does not have enough information to print the age')
+        raise KeyError('The dictionary does not have enough information to print the age')
         
 
 # 4)
@@ -87,8 +87,9 @@ def read_data(file):
     try:
         df = pd.read_csv(file)
         return(df)
-    except  FileNotFoundError:
+    except FileNotFoundError:
         print('This file does not exist')
+        raise
         
 
 # 5) Squash some bugs! 
