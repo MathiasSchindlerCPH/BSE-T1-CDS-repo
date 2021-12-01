@@ -16,23 +16,14 @@ import pandas as pd
 
 class TestHW5(unittest.TestCase):
     #1 
-    def test_car_at_light_1(self):
-        x = 'red'
-        output = car_at_light(x)
-        expected_output = 'stop'
+     def test_car_at_light_1(self):
+        light_colors = ['red', 'yellow', 'green']
+        output = list(map(car_at_light, light_colors))
+        expected_output = ['stop', 'wait', 'go']
         self.assertEqual(output, expected_output)
+        with self.assertRaises(Exception): 
+            car_at_light('purple')
         
-    def test_car_at_light_2(self):
-        x = 'yellow'
-        output = car_at_light(x)
-        expected_output = 'wait'
-        self.assertEqual(output, expected_output)
-        
-    def test_car_at_light_3(self):
-        x = 'green'
-        output = car_at_light(x)
-        expected_output = 'go'
-        self.assertEqual(output, expected_output)
         
     #2
     def test_safe_subtract_1(self):
