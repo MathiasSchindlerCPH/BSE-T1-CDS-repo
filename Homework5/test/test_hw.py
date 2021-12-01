@@ -63,7 +63,8 @@ class TestHW5(unittest.TestCase):
         
     #4    
     def test_read_data(self): 
-        output = read_data('sample_diabetes_melitus_data.csv')
+        # dataset "sample_diabetes_mellitus_data.csv" uploaded to GitHub:
+        output = read_data('"https://raw.githubusercontent.com/MathiasSchindlerCPH/datasets/master/sample_diabetes_mellitus_data.csv"')
         expected_output = pd.read_csv('sample_diabetes_melitus_data.csv')
         assert_frame_equal(output, expected_output)
         with self.assertRaises(FileNotFoundError): 
