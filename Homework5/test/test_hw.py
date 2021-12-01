@@ -27,19 +27,21 @@ class TestHW5(unittest.TestCase):
         
     #2
     def test_safe_subtract_1(self):
-        x1 = 5
-        x2 = 3
+        x1, x2 = 5, 3
         output = safe_subtract(x1, x2)
         expected_output = 2
         self.assertEqual(output, expected_output)
+        with self.assertRaises(TypeError):
+            safe_subtract("Hello", "world")
         
         
     def test_safe_subtract_2(self):
-        x1 = 10
-        x2 = 30
+        x1, x2 = 10, 30
         output = safe_subtract(x1, x2)
         expected_output = -20
         self.assertEqual(output, expected_output)
+        with self.assertRaises(TypeError):
+            safe_subtract("Hello", "world")
     
     #3
     def test_retrieve_age_eafp(self):
@@ -47,6 +49,8 @@ class TestHW5(unittest.TestCase):
         output = retrieve_age_eafp(x)
         expected_output = 'Meryl Streep is 72 years old'
         self.assertEqual(output, expected_output)
+        with self.assertRaises(KeyError):
+            retrieve_age_eafp({'name': 'Someone', 'last_name': 'something', 'gender': 'both'})
     
     
     def test_retrieve_age_lbyl(self):
@@ -54,6 +58,8 @@ class TestHW5(unittest.TestCase):
         output = retrieve_age_lbyl(x)
         expected_output = 'Will Smith is 53 years old'
         self.assertEqual(output, expected_output)
+        with self.assertRaises(KeyError):
+            retrieve_age_lbyl({'name': 'Someone', 'last_name': 'something', 'gender': 'both'})
         
     #4    
     def test_read_data(self): 
