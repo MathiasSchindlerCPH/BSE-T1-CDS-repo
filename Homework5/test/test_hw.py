@@ -51,14 +51,14 @@ class TestHW5(unittest.TestCase):
         self.assertEqual(output, expected_output)
     
     #3
-    def test_retrieve_age_eafp():
+    def test_retrieve_age_eafp(self):
         x = {'name': 'Meryl', 'last_name': 'Streep', 'birth': 1949}
         output = retrieve_age_eafp(x)
         expected_output = 'Meryl Streep is 72 years old'
         self.assertEqual(output, expected_output)
     
     
-    def test_retrieve_age_lbyl():
+    def test_retrieve_age_lbyl(self):
         x = {'name': 'Will', 'last_name': 'Smith', 'birth': 1968}
         output = retrieve_age_lbyl(x)
         expected_output = 'Will Smith is 53 years old'
