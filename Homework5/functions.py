@@ -80,16 +80,16 @@ def retrieve_age_lbyl(input_dict):
 # making sure to use to handle the fact 
 # that it might not exist. 
 #
-def read_data(data):
-    try:
-        f = open(data)
-    except IOError as e:
-        print("File can't be accessed")
-    else:
-        with f:
-            print(f.read())
-            
 
+import pandas as pd
+            
+def read_data(file):
+    try:
+        df = pd.read_csv(file)
+        return(df)
+    except  FileNotFoundError:
+        print('This file does not exist')
+        
 
 # 5) Squash some bugs! 
 # Find the possible logical errors (bugs) 

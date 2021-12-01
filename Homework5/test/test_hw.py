@@ -1,5 +1,3 @@
-#!pip install pytest-cov pytest
-
 import unittest
 
 import sys
