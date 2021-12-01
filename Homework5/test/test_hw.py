@@ -5,14 +5,73 @@ import unittest
 import sys
 sys.path.append('../')
 
-from functions import get_day_month_year, compute_distance, sum_general_int_list
+from functions import car_at_light, safe_subtract, retrieve_age_eafp, get_day_month_year, compute_distance, sum_general_int_list
 
 from pandas.testing import assert_frame_equal
 
 from datetime import date
 import pandas as pd
 
+
+
 class TestHW5(unittest.TestCase):
+    #1 
+    def test_car_at_light_1(self):
+        x = 'red'
+        output = car_at_light(x)
+        expected_output = 'stop'
+        assert output == expected_output
+        
+    def test_car_at_light_2(self):
+        x = 'yellow'
+        output = car_at_light(x)
+        expected_output = 'wait'
+        assert output == expected_output
+        
+    def test_car_at_light_3(self):
+        x = 'green'
+        output = car_at_light(x)
+        expected_output = 'go'
+        assert output == expected_output
+        
+    #2
+    def test_safe_subtract_1(self):
+        x1 = 5
+        x2 = 3
+        output = safe_subtract(x1, x2)
+        expected_output = 2
+        assert output == expected_output
+        
+        
+    def test_safe_subtract_2(self):
+        x1 = 10
+        x2 = 30
+        output = safe_subtract(x1, x2)
+        expected_output = -20
+        assert output == expected_output
+    
+    #3
+    def test_retrieve_age_eafp():
+        x = {'name': 'Meryl', 'last_name': 'Streep', 'birth': 1949}
+        output = retrieve_age_eafp(x)
+        expected_output = 'Meryl Streep is 72 years old'
+        assert output == expected_output
+    
+    
+    def test_retrieve_age_lbyl():
+        x = {'name': 'Will', 'last_name': 'Smith', 'birth': 1968}
+        output = retrieve_age_lbyl(x)
+        expected_output = 'Will Smith is 53 years old'
+        assert output == expected_output
+        
+    #4
+    
+    
+    #5
+    
+    
+    #6
+    
 
     # 7
     def testGetDayMonthYear(self):
