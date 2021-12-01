@@ -59,6 +59,7 @@ def retrieve_age_eafp(input_dict):
         age_v = 2021 - input_dict['birth']
         input_dict.update({'age': age_v})
         print("{name} {last_name} is {age} years old".format(**input_dict))
+        return "{name} {last_name} is {age} years old".format(**input_dict)
     except KeyError:
         print('The dictionary does not have enough information to print the age')
     
@@ -68,6 +69,7 @@ def retrieve_age_lbyl(input_dict):
         age_v = 2021 - input_dict['birth']
         input_dict.update({'age': age_v})
         print("{name} {last_name} is {age} years old".format(**input_dict))
+        return "{name} {last_name} is {age} years old".format(**input_dict)
     else:
         print('The dictionary does not have enough information to print the age')
         
@@ -132,13 +134,10 @@ def read_data(data):
 ex = ["Simba and Nala are lions.", "I laugh in the face of danger.",
  "Hakuna matata", "Timon, Pumba and Simba are friends, but Simba could eat the other two."] 
 
-
 from functools import reduce
 
 def count_simba(string):
-    return string.count('Simba') 
-    
-reduce(lambda x,y: x+y, map(count_simba, ex))
+    return sum(map(lambda i: i.count('Simba'), string))
 
 # 7)
 # Create a function called "get_day_month_year" that takes 
