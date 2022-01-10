@@ -9,5 +9,5 @@ Coursework for *Computing for Data Science*, taught in Term 1, at the Barcelona 
   * Hw6: Object-Oriented Programming using Classes and Functions
   * Hw7: Unit-testing (revisiting Hw5)
 
-<br />
-Final Grade Achieved: 8.9/10.0 (A-)
+## Grade Achieved
+Final Grade: 8.9/10.0 (A-)
